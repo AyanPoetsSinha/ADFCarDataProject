@@ -5,13 +5,18 @@
 			"referenceName": "LS_LandingADLS2Storage",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"landingLocation": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@concat('landing/', formatDateTime(utcNow(), 'yyyy'),'/', formatDateTime(utcNow(),'MM'),'/', formatDateTime(utcNow(),'dd'),'/'  )",
+					"value": "@dataset().landingLocation",
 					"type": "Expression"
 				},
 				"fileSystem": "input"

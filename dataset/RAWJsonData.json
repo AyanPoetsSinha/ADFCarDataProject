@@ -5,15 +5,18 @@
 			"referenceName": "LS_RawADLS2Storage",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sourceLocation": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Customer_Valid.json",
-				"folderPath": "08/30",
 				"fileSystem": {
-					"value": "@concat(formatDateTime(utcNow(), 'yyyy'),'/', formatDateTime(utcNow(),'MM'),'/', formatDateTime(utcNow(),'dd'),'/')",
+					"value": "@dataset().sourceLocation",
 					"type": "Expression"
 				}
 			}
