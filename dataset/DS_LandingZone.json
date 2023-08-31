@@ -1,0 +1,22 @@
+{
+	"name": "DS_LandingZone",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_LandingADLS2Storage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@concat('landing/', formatDateTime(utcNow(), 'yyyy'),'/', formatDateTime(utcNow(),'MM'),'/', formatDateTime(utcNow(),'dd'),'/'  )",
+					"type": "Expression"
+				},
+				"fileSystem": "input"
+			}
+		},
+		"schema": {}
+	}
+}
